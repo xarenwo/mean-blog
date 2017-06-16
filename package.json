@@ -1,0 +1,25 @@
+{
+  "name": "unimi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "*",
+    "mongodb": "*",
+    "mongoose": "*",
+    "bcryptjs": "*",
+    "cors":"*",
+    "jsonwebtoken": "*",
+    "body-parser": "*",
+    "passport": "*",
+    "passport-jwt": "*",
+    "moment": "*",
+    "multer": "*"
+  },
+  "author": "Andrei Maris",
+  "license": "ISC"
+}

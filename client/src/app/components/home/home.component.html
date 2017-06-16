@@ -1,0 +1,23 @@
+<div class="jumbotron text-center">
+  <h1>Unimi Blog Cms</h1>
+  <p class="lead">Un Blog veloce, responsive e facile da usare</p>
+  <div>
+     <a class="btn btn-primary" [routerLink]="['/register']">Register</a>&nbsp;<a class="btn btn-default" [routerLink]="['/login']">Login</a>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-4">
+    <h3>Angular 4 & Ajax</h3>
+    <p>Questo proggetto utilizza il framework Angular 4, che permette di fare richieste ad un API REST servito da un server in NodeJS. Per il caricamento del file ho dovuto usare delle richieste XMLHttpRequest costruendo un FormData, cosi potendo mandare la richiesta all'api in formato "multipart/form-data", in quanto Angular 4 e' appena uscito e non c'e` ancora un modo per fare queste richieste perche' i plugin sono stati abbandonati dopo il passaggio da Angular 2</p>
+  </div>
+  <div class="col-md-4">
+    <h3>NodeJS & ExpressJS</h3>
+    <p>Questo proggetto si basa su un server NodeJS e il framework ExpressJS, con delle API REST disponibili ed utilizzando Angular 4, vengono fatte delle richieste di GET,POST,DELETE e PUT, e mandato un token di autorizzazione nel header per poter autenticare in modo sicuro l'utente, cosi togliendo qualsiasi problema di sicurezza.</p>
+  </div>
+   <div class="col-md-4">
+    <h3>MongoDB</h3>
+    <p>Tutti i dati utilizzati da questa applicazione, sono stoccati in una banca dati MongoDB, i file invece vengono stoccati sul server e viene salvato l'url del file nel database.</p>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div *ngIf="postData">
+
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12  well well-lg">
+      <h1>{{postData.title}}</h1>
+      <p class="small">Posted in <b><a [routerLink]="['/show/category/',postData.category]">{{postData.category}}</a></b> by <b><a [routerLink]="['/show/author/',postData.author]">{{postData.author}}</a></b> on {{postData.date}}</p>
+
+      <div *ngIf="user && user.username == postData.author">
+        <a class="btn btn-sm btn-warning" [routerLink]="['/edit/',postData._id]">Edit</a>
+        <a class="btn btn-sm btn-danger" (click)="deletePost(postData._id,user._id)">Delete</a>
+        <br/><br/>
+      </div>
+      <img src="../uploads/images/posts/{{postData.image}}" alt="{{postData.title}}" class="img-responsive">
+      <br/>
+      <p>{{postData.body}}</p>
+
+    </div>
+  </div>
+
+  <div *ngIf="postData.comments && user">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Comments</h3>
+        <div class="row">
+          <div *ngFor="let comment of postData.comments; let i= index;" class="col-md-12 alert alert-info">
+            <p><b>{{comment.name}}</b></p>
+            <p>{{comment.body}}</p>
+            <br/><br/>
+            <div *ngIf="user.username == postData.author || user.username == comment.commentAuthor">
+              <a class="btn btn-sm btn-danger" (click)="deleteComment(postData._id,comment._id,user._id,comment.commentAuthor)">Delete</a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Add comment</h3>
+  <form *ngIf="user" (submit)="onAddComment(postData._id)">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" [(ngModel)]="commentName" class="form-control" name="commentName">
+    </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" [(ngModel)]="commentEmail" class="form-control" name="commentEmail">
+  </div>
+    <div class="form-group">
+      <label>Comment</label>
+      <textarea [(ngModel)]="commentBody" class="form-control" name="commentBody"></textarea>
+    </div>
+    <input type="submit" class="btn btn-lg btn-success" value="Add Comment">
+  </form>
+
+</div>

@@ -1,0 +1,27 @@
+<h2 class="page-header">Add a new post</h2>
+<form>
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" [(ngModel)]="title" name="title" class="form-control">
+  </div>
+
+  <div *ngIf="categories">
+    <label>Select Category</label>
+    <div class="form-group">
+      <select  name="category" [(ngModel)]="category" id="category" class="form-control">
+
+        <option *ngFor="let c of categories; let i = index;" value="{{c.name}}">{{c.name}}</option>
+
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Body</label>
+    <textarea [(ngModel)]="body" name="body" class="form-control"></textarea>
+  </div>
+  <div class="form-group">
+    <label>Image</label>
+    <input type="file"   name="postImage" (change)="selectFile($event)" placeholder="Select your image" class="form-control">
+  </div>
+  <input type="submit" class="btn btn-primary" id="btnSubmit" (click)="upload();" value="Add Post">
+</form>

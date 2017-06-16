@@ -1,0 +1,21 @@
+<h2 class="page-header">Dashboard</h2>
+<p>Welcome to your dashboard</p>
+
+
+<div *ngIf="post">
+
+    <div class="row">
+        <div *ngFor="let p of post; let i = index;"  class="col-sm-12 col-md-12 col-lg-12  well well-lg">
+            <h1>{{p.title}}</h1>
+            <p class="small">Posted in <b><a [routerLink]="['/show/category/',p.category]">{{p.category}}</a></b> by <b><a [routerLink]="['/show/author/',p.author]">{{p.author}}</a></b> on {{p.date}}</p>
+            <img src="../uploads/images/posts/{{p.image}}" alt="{{p.title}}" class="img-responsive">
+            <br/>
+            <p>{{p.body}}</p>
+            <a class="btn btn-lg btn-info" [routerLink]="['/show/',p._id]">Read more</a>
+        </div>
+    </div>
+
+</div>
+
+
+

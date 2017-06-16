@@ -1,0 +1,30 @@
+<div class="container">
+<div *ngIf="user">
+
+  <h2 class="page-header">{{user.name}}</h2>
+  <ul class="list-group">
+    <li class="list-group-item"><b>Username</b>  : {{user.username}}</li>
+    <li class="list-group-item"><b>Email</b> : {{user.email}}</li>
+      </ul>
+
+</div>
+
+
+  <h1>Your posts</h1>
+  <div *ngIf="postData">
+    <hr>
+    <div class="row">
+      <div *ngFor="let p of postData; let i = index;"  class="col-sm-12 col-md-12 col-lg-12  well well-lg">
+        <h1>{{p.title}}</h1>
+        <p class="small">Posted in <b><a [routerLink]="['/show/category/',p.category]">{{p.category}}</a></b> by <b><a [routerLink]="['/show/author/',p.author]">{{p.author}}</a></b> on {{p.date}}</p>
+        <img src="../uploads/images/posts/{{p.image}}" alt="{{p.title}}"  class="img-responsive">
+        <br/>
+        <p>{{p.body}}</p>
+        <a class="btn btn-lg btn-info" [routerLink]="['/show/',p._id]">Read more</a>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>

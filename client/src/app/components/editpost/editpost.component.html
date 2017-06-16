@@ -1,0 +1,35 @@
+<div *ngIf="postData">
+
+  <div class="row">
+
+    <div class="col-sm-12 col-md-12 col-lg-12  well well-lg">
+      <form (submit)="onSaveSubmit($event)">
+        <div class="form-group">
+          <label>Change Title</label>
+        <input type="text" [(ngModel)]="title" name="title" placeholder="{{postData.title}}" class="form-control">
+        </div>
+        <div *ngIf="categories">
+            <label>Change Category</label>
+            <div class="form-group">
+              <select  name="category" [(ngModel)]="category" id="category" class="form-control">
+
+                <option *ngFor="let c of categories; let i = index;" value="{{c.name}}">{{c.name}}</option>
+
+              </select>
+            </div>
+        </div>
+
+      <p class="small">Posted in <b><a href="/posts/get/category/{{postData.category}}">{{postData.category}}</a></b> by <b>{{postData.author}}</b> on {{postData.date}}</p>
+
+
+      <img src="../uploads/images/posts/{{postData.image}}" alt="{{postData.title}}" class="img-responsive">
+      <br/>
+      <textarea class="form-control"  [(ngModel)]="body" name="body"></textarea>
+
+<br/>
+        <input class="btn btn-lg btn-info" type="submit" value="Save">
+      </form>
+    </div>
+  </div>
+
+</div>
